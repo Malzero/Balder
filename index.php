@@ -37,7 +37,7 @@ if($_SESSION['active'] ===1)
     while ($i < $result->num_rows){
 
         echo "
-        <div id=\"icons\">
+        <div id='icons'>
 			<button class=\"accordion\">";print $rows[$i]['RAMO']; echo "</button>";
             $ramo = $rows[$i]['RAMO'];
 			$queryb = "SELECT `MATERIA` FROM `ramosmaterias` WHERE `RAMO` = '$ramo'";
@@ -55,10 +55,13 @@ if($_SESSION['active'] ===1)
             $j = 0;
             while ($j < $resultb->num_rows) {
 
+                echo $j;
+                echo $resultb->num_rows;
+                echo "<div class='panel'>";
+                print $rowsb[$j]['MATERIA'];
+                echo "</div>";
 
-                echo "	
-                    <div class=\"panel\">"; print $rowsb[$j]['MATERIA']; echo "</div>";
-                    $j++;
+                $j++;
             }
 
         echo "</div><br>";

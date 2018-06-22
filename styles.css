@@ -35,6 +35,6 @@ body{
 
 
 }
-p{
-    width: fit-content;
+#icons{
+    align-content: left;
 }

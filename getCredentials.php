@@ -21,6 +21,12 @@ if ( $result = mysqli_query($conn, $query)) {
                header("Location: areaProfesor.php");
 
            }
+            if ($fila[2] === '2') {
+                $_SESSION['user'] = $fila[0];
+                $_SESSION['active'] = 1;
+                header("Location: index.php");
+
+            }
 
 
         }

@@ -30,50 +30,49 @@ if($_SESSION['active'] ===1)
             }
         }
     }
+    echo "<h1>Bienvenido  $usuario</h1> ";
+
+    echo "<div id=\'menu'\>";
     $i = 0;
     while ($i < $result->num_rows){
 
         echo "
         <div id=\"icons\">
-			<button class=\"accordion\">";print $rows[$i]['RAMO']; echo "</button>
-			<div class=\"panel\">
-				<a></a>
-			</div>
-			<br>
-        
-        ";
+			<button class=\"accordion\">";print $rows[$i]['RAMO']; echo "</button>";
+            $ramo = $rows[$i]['RAMO'];
+			$queryb = "SELECT `MATERIA` FROM `ramosmaterias` WHERE `RAMO` = '$ramo'";
+
+            if ( $resultb = mysqli_query($conn, $queryb)) {
+
+              if ($resultb->num_rows != 0) {
+
+                $rowsb = array();
+                while($rowb = $resultb->fetch_assoc()){
+                  $rowsb[] = $rowb;
+                }
+              }
+            }
+            $j = 0;
+            while ($j < $resultb->num_rows) {
+
+
+                echo "	
+                    <div class=\"panel\">"; print $rowsb[$j]['MATERIA']; echo "</div>";
+                    $j++;
+            }
+
+        echo "</div><br>";
+
         $i++;
     }
+    echo "</div>";
 
 }else
     echo "ERROR. No se pudo procesar la query <br/>";
-die();
+//die();
 
 
 ?>
-		
-		<div id="taskbar">		
-		</div>
-		
-		<div id="icons">
-			<h1>Plataforma de Recursos Compartidos FODEC</h1>
-
-			<button class="accordion">Quimica</button>
-			<div class="panel">
-				<a>Química 1*medio</a>
-			</div>
-			<br>
-			<button class="accordion">Fisica</button>
-			<div class="panel">
-				<a>Física 1*medio</a>
-			</div>
-
-		</div>
-
-
-
-
-	</div>
 
 	<script>
         var acc = document.getElementsByClassName("accordion");

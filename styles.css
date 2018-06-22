@@ -6,35 +6,50 @@ body{
     color: #444;
     cursor: pointer;
     padding: 18px;
-    min-width: 10vw;
+    min-width: 130px;
     max-width: fit-content;
     border: solid 2px cadetblue;
-    text-align: left;
+    text-align: center;
     outline: none;
     font-size: 18px;
     transition: 0.55s;
 }
 
-.active, .accordion:hover, .panel:hover {
+.active, .accordion:hover, .panel2:hover {
     background-color: #9092c0;
 }
 
 .panel {
-    padding: 18px;
     display: none;
+    width: -moz-fit-content;
+    padding: 18px 18px 18px 18px;
+    text-align: left;
+
+}
+.panel2 {
+    padding: 18px;
+
     background-color: #eee;
     color: #444;
     cursor: pointer;
-    width: 20vw;
+    max-width: fit-content;
+    min-width: 30vw;
     border: solid 2px cadetblue;
     text-align: left;
     font-size: 18px;
     transition: 0.55s;
 }
 #menu{
-
-
+    max-height: fit-content;
+    width: 50%;
+    border: solid 5px red;
+    alignment: left;
 }
 #icons{
     align-content: left;
+}
+#frame {
+    border: solid 5px blue;
+    align-content: right;
+    height: 100vh;
 }

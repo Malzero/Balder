@@ -14,6 +14,8 @@
 include_once ("connection.php");
 session_start();
 
+
+
 if($_SESSION['active'] ===1)
 {
     $tabla = "cuentascursos";
@@ -32,7 +34,9 @@ if($_SESSION['active'] ===1)
     }
     echo "<h1>Bienvenido  $usuario</h1> ";
 
-    echo "<div id=\'menu'\>";
+    echo "<div id ='frame''>";
+
+    echo "<div id='menu'>";
     $i = 0;
     while ($i < $result->num_rows){
 
@@ -53,22 +57,29 @@ if($_SESSION['active'] ===1)
               }
             }
             $j = 0;
+            echo "<div class='panel'>";
             while ($j < $resultb->num_rows) {
 
-                echo $j;
-                echo $resultb->num_rows;
-                echo "<div class='panel'>";
+                //echo $j;
+                //echo $resultb->num_rows;
+                $materia = $rowsb[$j]['MATERIA'];
+                echo $ramo.'/'.$materia;
+                echo "<br><button id='boton' class='panel2'>";
                 print $rowsb[$j]['MATERIA'];
-                echo "</div>";
-
+                echo "</button><br>";
                 $j++;
             }
+            echo "</div>";
 
-        echo "</div><br>";
+
+
+        echo "</div>";
 
         $i++;
     }
     echo "</div>";
+    echo "</div>";
+
 
 }else
     echo "ERROR. No se pudo procesar la query <br/>";
@@ -77,7 +88,7 @@ if($_SESSION['active'] ===1)
 
 ?>
 
-	<script>
+	<script type="text/javascript">
         var acc = document.getElementsByClassName("accordion");
         var i;
 
@@ -91,6 +102,17 @@ if($_SESSION['active'] ===1)
                     panel.style.display = "block";
                 }
             });
+        }
+        document.getElementById("boton").onclick = showNavigator();
+        function showNavigator(path)
+        {
+            var ruta = "cursos/navigator.php?path=";
+            var carpeta = ruta.concat(path);
+            var target = document.getElementById("frame");
+            var newFramve = document.createElement("iframe");
+            newFramve.setAttribute("src", "https://www.google.com/");
+            target.insertBefore(newFramve,target.firstChild);
+
         }
 	</script>
 </body>

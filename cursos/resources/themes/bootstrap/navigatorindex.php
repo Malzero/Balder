@@ -1,8 +1,4 @@
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["userfile"])) {
-    // move_uploaded_file()
-}
-?>
+
 <!DOCTYPE html>
 
 <html>

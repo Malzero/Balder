@@ -549,6 +549,8 @@ class DirectoryLister {
         // Initialize array
         $directoryArray = array();
 
+        echo $directory;
+
         // Get directory contents
         $files = scandir($directory);
 

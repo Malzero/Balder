@@ -19,7 +19,8 @@ return array(
         'analytics.inc',
         'header.php',
         'footer.php',
-        'upload.php'
+        'upload.php',
+        'navigatorindex.php'
     ),
 
     // If set to 'true' an directory with an index file (as defined below) will
@@ -34,7 +35,7 @@ return array(
     'index_files' => array(
         'index.htm',
         'index.php',
-        'index.php',
+        'navigatorindex.php'
     ),
 
     // File hashing threshold

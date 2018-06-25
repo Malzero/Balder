@@ -1,52 +1,57 @@
 <?php
 
-// Include the DirectoryLister class
-require_once('resources/DirectoryLister.php');
+    // Include the DirectoryLister class
+    require_once('resources\DirectoryLister.php');
 
-// Initialize the DirectoryLister object
-$lister = new DirectoryLister();
-$basedir= $_GET['path'];
-// Restrict access to current directory
-ini_set($basedir, getcwd());
+    // Initialize the DirectoryLister object
+    $lister = new DirectoryLister();
+    $basedir= $_GET['path'];
+    //substr_replace($basedir, "", -1);
+    echo $basedir;
+    echo getcwd();
 
-// Return file hash
-if (isset($_GET['hash'])) {
+    // Restrict access to current directory
+    ini_set('open_basedir', getcwd().'\\'.$basedir);
 
-    // Get file hash array and JSON encode it
-    $hashes = $lister->getFileHash($_GET['hash']);
-    $data   = json_encode($hashes);
+    // Return file hash
+    if (isset($_GET['hash'])) {
 
-    // Return the data
-    die($data);
+        // Get file hash array and JSON encode it
+        $hashes = $lister->getFileHash($_GET['hash']);
+        $data   = json_encode($hashes);
 
-}
+        // Return the data
+        die($data);
 
-if (isset($_GET['zip'])) {
+    }
 
-    $dirArray = $lister->zipDirectory($_GET['zip']);
+    if (isset($_GET['zip'])) {
 
-} else {
+        $dirArray = $lister->zipDirectory($_GET['zip']);
 
-    // Initialize the directory array
-    if (isset($_GET['dir'])) {
-        $dirArray = $lister->listDirectory($_GET['dir']);
     } else {
-        $dirArray = $lister->listDirectory('.');
-    }
 
-    // Define theme path
-    if (!defined('THEMEPATH')) {
-        define('THEMEPATH', $lister->getThemePath());
-    }
+        // Initialize the directory array
+        if (isset($_GET['dir'])) {
+            $dirArray = $lister->listDirectory($_GET['dir']);
+        } else {
+            $dirArray = $lister->listDirectory('.');
+        }
 
-    // Set path to theme index
-    $themeIndex = $lister->getThemePath(true) . '/navigatorindex.php';
+        // Define theme path
+        if (!defined('THEMEPATH')) {
+            define('THEMEPATH', $lister->getThemePath());
+        }
 
-    // Initialize the theme
-    if (file_exists($themeIndex)) {
-        include($themeIndex);
-    } else {
-        die('ERROR: Failed to initialize theme');
-    }
+        // Set path to theme index
+        echo $lister->getThemePath(true);
+        $themeIndex = $lister->getThemePath(true) . '\navigatorindex.php';
+
+        // Initialize the theme
+        if (file_exists($themeIndex)) {
+            include($themeIndex);
+        } else {
+            die('ERROR: Failed to initialize theme');
+        }
 
 }

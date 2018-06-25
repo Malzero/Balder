@@ -1,5 +1,10 @@
 body{
     background: #AAAAAA;
+    min-width:900px;        /* Suppose you want minimum width of 1000px */
+    width: auto !important;  /* Firefox will set width as auto */
+    width:1000px;
+
+
 }
 .accordion {
     background-color: #eee;
@@ -34,22 +39,50 @@ body{
     cursor: pointer;
     max-width: fit-content;
     min-width: 30vw;
-    border: solid 2px cadetblue;
+   /* border: solid 2px cadetblue;*/
     text-align: left;
     font-size: 18px;
     transition: 0.55s;
 }
 #menu{
     max-height: fit-content;
-    width: 50%;
-    border: solid 5px red;
+    width: 50vh;
+    /*border: solid 5px red;*/
     alignment: left;
+    position: relative;
+    top: -45vh;
+    left: 0;
+
 }
 #icons{
     align-content: left;
+    /*border: solid 5px orange;*/
 }
 #frame {
-    border: solid 5px blue;
+   /* border: solid 5px blue;*/
     align-content: right;
     height: 100vh;
+    min-width: 40vh;
+    min-height: 50vh;
+}
+
+#frame2 {
+   /*border: solid 5px yellow;*/
+    align-self: right;
+    position: sticky;
+    top: 0;
+    left: 100%;
+    height: 45%;
+    width: 45%;
+    /*visibility: hidden;*/
+}
+.frame22 {
+   /* border: solid 5px yellow;*/
+
+    /*position: sticky;*/
+
+
+    height: 100%;
+    width: 100%;
+
 }

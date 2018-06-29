@@ -20,7 +20,21 @@ body{
     transition: 0.55s;
 }
 
-.active, .accordion:hover, .panel2:hover {
+.accordion2 {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    min-width: 130px;
+    max-width: fit-content;
+    border: solid 2px cadetblue;
+    text-align: center;
+    outline: none;
+    font-size: 18px;
+    transition: 0.55s;
+}
+
+.active, .accordion:hover, .panel2:hover, .accordion2:hover {
     background-color: #9092c0;
 }
 
@@ -29,6 +43,15 @@ body{
     width: -moz-fit-content;
     padding: 18px 18px 18px 18px;
     text-align: left;
+
+}
+.panel3 {
+    display: none;
+    width: -moz-fit-content;
+    padding: 18px 18px 18px 18px;
+    text-align: left;
+    border: solid 2px cadetblue;
+    background: #8888d6;
 
 }
 .panel2 {
@@ -86,3 +109,15 @@ body{
     width: 100%;
 
 }
+
+#error{
+    color: #6c0000;
+    background-color: #FE4902;
+    width: -moz-fit-content;
+}
+#ok{
+    color: #006000;
+    background-color: chartreuse;
+    width: -moz-fit-content;
+}
+

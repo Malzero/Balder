@@ -18,15 +18,25 @@ if ( $result = mysqli_query($conn, $query)) {
            if ($fila[2] === '1') {
                $_SESSION['user'] = $fila[0];
                $_SESSION['active'] = 1;
+               $_SESSION['rol'] = $fila[2];
                header("Location: areaProfesor.php");
 
            }
             if ($fila[2] === '2') {
                 $_SESSION['user'] = $fila[0];
                 $_SESSION['active'] = 1;
+                $_SESSION['rol'] = $fila[2];
                 header("Location: index.php");
 
             }
+            if ($fila[2] === '3') {
+                $_SESSION['user'] = $fila[0];
+                $_SESSION['active'] = 1;
+                $_SESSION['rol'] = $fila[2];
+                header("Location: admin.php");
+
+            }
+
 
 
         }
